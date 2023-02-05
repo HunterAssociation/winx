@@ -20,7 +20,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
             ),
             InlineKeyboardButton(
                 text=_["P_B_7"],
-                url="https://i.ibb.co/yYYVtQG/IMG-20230130-WA0029-picsay.jpg",
+                url="https://i.ibb.co/qsgBcyV/DONATE-ME.jpg",
             ),
         ],
         [
@@ -60,7 +60,7 @@ def stream_markup(_, videoid, chat_id):
             ),
             InlineKeyboardButton(
                 text=_["P_B_7"],
-                url="https://i.ibb.co/yYYVtQG/IMG-20230130-WA0029-picsay.jpg",
+                url="https://i.ibb.co/qsgBcyV/DONATE-ME.jpg",
             ),
         ],
         [
@@ -100,7 +100,7 @@ def track_markup(_, videoid, user_id, channel, fplay):
             ),
             InlineKeyboardButton(
                 text=_["P_B_7"],
-                url="https://i.ibb.co/yYYVtQG/IMG-20230130-WA0029-picsay.jpg",
+                url="https://i.ibb.co/qsgBcyV/DONATE-ME.jpg",
             ),
         ],
         [
