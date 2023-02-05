@@ -270,10 +270,12 @@ PM_B_2 : "InlineMarkup"
 PM_B_3 : "ChannelPlay"
 
 #Play
-P_B_1 : "🎵 Play Audio"
-P_B_2 : "🎥 Play Video"
+P_B_1 : "ᴘʟᴀʏ ᴀᴜᴅɪᴏ"
+P_B_2 : "ᴘʟᴀʏ ᴠɪᴅᴇᴏ"
 P_B_3 : "🏮 Start Live Stream"
 P_B_4 : "🎵 Play Playlist"
+P_B_5 : "ᴄʜᴀɴɴᴇʟ"
+P_B_6 : "ᴍᴇɴᴜ"
 
 #Playlist
 PL_B_1 : "🚀 Play Playlist"
