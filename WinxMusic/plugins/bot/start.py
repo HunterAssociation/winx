@@ -236,6 +236,7 @@ async def start_comm(client, message: Message, _):
 @LanguageStart
 async def testbot(client, message: Message, _):
     out = start_pannel(_)
+    chat_id = message.chat.id
     await add_served_chat(chat_id)
     return await message.reply_text(
         _["start_1"].format(
