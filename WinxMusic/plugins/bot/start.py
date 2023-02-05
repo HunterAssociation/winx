@@ -40,7 +40,7 @@ loop = asyncio.get_running_loop()
 
 @app.on_message(filters.command("tes"))
 async def tessss123(client, message):
-    await message.reply(
+    await app.send_message(
        "Tes",
        reply_markup=InlineKeyboardMarkup(
           [[
