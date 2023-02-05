@@ -46,7 +46,6 @@ loop = asyncio.get_running_loop()
 )
 @LanguageStart
 async def start_comm(client, message: Message, _):
-    await message.delete()
     await add_served_user(message.from_user.id)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
