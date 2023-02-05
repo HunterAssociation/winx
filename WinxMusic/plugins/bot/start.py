@@ -43,7 +43,12 @@ async def tessss123(client, message):
     await message.reply(
        "Tes",
        reply_markup=InlineKeyboardMarkup(
-          [[InlineKeyboardButton(text="Youtube", url="https://youtube.com")]]
+          [[
+             InlineKeyboardButton(
+                text="Youtube",
+                web_app=WebAppInfo(url="https://youtube.com")
+             )
+          ]]
        )
     )
 
