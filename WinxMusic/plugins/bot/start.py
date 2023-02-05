@@ -41,7 +41,8 @@ loop = asyncio.get_running_loop()
 @app.on_message(filters.command("tes"))
 async def tessss123(client, message):
     await app.send_message(
-       "Tes",
+       message.chat.id,
+       text="Tes",
        reply_markup=InlineKeyboardMarkup(
           [[
              InlineKeyboardButton(
