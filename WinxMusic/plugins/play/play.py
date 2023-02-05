@@ -21,7 +21,7 @@ from WinxMusic import (Apple, Resso, SoundCloud, Spotify, Telegram,
 from WinxMusic.core.call import Winx
 from WinxMusic.utils import seconds_to_min, time_to_seconds
 from WinxMusic.utils.channelplay import get_channeplayCB
-from WinxMusic.utils.database import is_video_allowed
+from WinxMusic.utils.database import is_video_allowed, add_served_chat, add_served_user
 from WinxMusic.utils.decorators.language import languageCB
 from WinxMusic.utils.decorators.play import PlayWrapper
 from WinxMusic.utils.formatters import formats
@@ -55,6 +55,7 @@ async def play_commnd(
         url,
         fplay,
 ):
+    await add_served_chat(message.chat.id)
     await add_served_user(message.from_user.id)
     mystic = await message.reply_text(
         _["play_2"].format(channel) if channel else _["play_1"]
