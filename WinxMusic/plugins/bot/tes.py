@@ -4,7 +4,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from WinxMusic import app
 
 @app.on_message(filters.command("tes"))
-async def tes(client, message):
+async def tessss123(client, message):
     await message.reply(
     "Tes",
     reply_markup=InlineKeyboardMarkup(
