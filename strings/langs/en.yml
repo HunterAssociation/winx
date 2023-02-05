@@ -257,13 +257,7 @@ S_B_8 : "ʜᴇʟᴘ"
 S_B_9 : "ᴅᴏɴᴀᴛɪᴏɴ"
 
 #Help 
-H_B_1 : "Admin Commands"
-H_B_2 : "Play Commands"
-H_B_3 : "Bot Commands"
-H_B_4 : "Extra Commands"
-H_B_5 : "Close Menu"
-H_B_6 : "SudoUser Commands"
-H_B_7 : "ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅꜱ"
+H_B_1 : "ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅꜱ"
 
 #PlayMode
 PM_B_1 : "DirectPlay"
