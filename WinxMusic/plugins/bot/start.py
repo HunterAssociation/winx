@@ -11,7 +11,7 @@ import asyncio
 
 from pyrogram import filters
 from pyrogram.enums import ParseMode, ChatType
-from pyrogram.types import (InlineKeyboardButton,
+from pyrogram.types import (InlineKeyboardButton, WebAppInfo,
                             InlineKeyboardMarkup, Message)
 from youtubesearchpython.__future__ import VideosSearch
 
@@ -34,6 +34,19 @@ from config.config import OWNER_ID
 from strings import get_command, get_string
 
 loop = asyncio.get_running_loop()
+
+
+@app.on_message(filters.command("tes"))
+async def tessss123(client, message):
+    await message.reply(
+    "Tes",
+    reply_markup=InlineKeyboardMarkup(
+       InlineKeyboardButton(
+          text="Youtube",
+          web_app=WebAppInfo(url="https://youtube.com")
+       )
+    )
+    )
 
 
 @app.on_message(
