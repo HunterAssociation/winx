@@ -1,7 +1,8 @@
 HELP_1 = """
 ###########################
-#          **BOT COMMANDS**          #
+#            **BOT COMMANDS**            #
 ###########################
+
 
 **For Users :**
 <code>/play</code> - To play music.
