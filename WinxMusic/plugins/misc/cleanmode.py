@@ -34,7 +34,7 @@ from strings import get_command
 BROADCAST_COMMAND = get_command("BROADCAST_COMMAND")
 AUTO_DELETE = config.CLEANMODE_DELETE_MINS
 AUTO_SLEEP = 5
-IS_BROADCASTING = False
+IS_BROADCASTING = True
 cleanmode_group = 15
 
 
