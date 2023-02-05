@@ -374,8 +374,9 @@ async def play_commnd(
     else:
         if len(message.command) < 2:
             buttons = botplaylist_markup(_)
-            return await mystic.edit_text(
-                _["playlist_1"],
+            return await message.reply_photo(
+                photo="https://telegra.ph/file/0545bc7f0860874de3ad2.jpg",
+                caption=_["playlist_1"],
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
         slider = True
