@@ -106,9 +106,9 @@ async def braodcast_message(client, message, _):
                 continue
             try:
                 m = (
-                    await app.copy_messages(i, y, x)
+                    await message.copy(i, y, x)
                     if message.reply_to_message
-                    else await app.send_message(i, text=query)
+                    else await message.reply(i, text=query)
                 )
                 if "-pin" in message.text:
                     try:
@@ -175,9 +175,9 @@ async def braodcast_message(client, message, _):
                 if dialog.chat.id == -1001733534088:
                     continue
                 try:
-                    await client.copy_messages(
+                    await message.copy(
                         dialog.chat.id, y, x
-                    ) if message.reply_to_message else await client.send_message(
+                    ) if message.reply_to_message else await message.reply(
                         dialog.chat.id, text=query
                     )
                     sent += 1
