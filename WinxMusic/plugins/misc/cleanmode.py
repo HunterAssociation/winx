@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2021-2022 by Maia, < https://github.com/gabrielmaialva33 >.
-#
-# This file is part of < https://github.com/gabrielmaialva33/winx-music-bot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/gabrielmaialva33/winx-music-bot/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import asyncio
 from datetime import datetime, timedelta
 
@@ -106,9 +97,9 @@ async def braodcast_message(client, message, _):
                 continue
             try:
                 m = (
-                    await message.copy(i, y, x)
+                    await app.copy_message(i, y, x)
                     if message.reply_to_message
-                    else await message.reply(i, text=query)
+                    else await app.send_message(i, text=query)
                 )
                 if "-pin" in message.text:
                     try:
@@ -145,9 +136,9 @@ async def braodcast_message(client, message, _):
         for i in served_users:
             try:
                 m = (
-                    await message.copy(i, y, x)
+                    await app.copy_message(i, y, x)
                     if message.reply_to_message
-                    else await message.reply(i, text=query)
+                    else await app.send_message(i, text=query)
                 )
                 susr += 1
             except FloodWait as e:
@@ -175,9 +166,9 @@ async def braodcast_message(client, message, _):
                 if dialog.chat.id == -1001733534088:
                     continue
                 try:
-                    await message.copy(
+                    await client.copy_message(
                         dialog.chat.id, y, x
-                    ) if message.reply_to_message else await message.reply(
+                    ) if message.reply_to_message else await client.send_message(
                         dialog.chat.id, text=query
                     )
                     sent += 1
