@@ -43,7 +43,7 @@ async def tessss123(client, message):
     reply_markup=InlineKeyboardMarkup(
        InlineKeyboardButton(
           text="Youtube",
-          web_app=WebAppInfo(url="https://youtube.com")
+          url="https://youtube.com"
        )
     )
     )
