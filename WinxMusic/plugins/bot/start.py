@@ -9,6 +9,7 @@
 
 import asyncio
 
+import pyrogram
 from pyrogram import filters
 from pyrogram.enums import ParseMode, ChatType
 from pyrogram.types import (InlineKeyboardButton, WebAppInfo,
@@ -44,12 +45,12 @@ async def tessss123(client, message):
        message.chat.id,
        text="Tes",
        reply_markup=InlineKeyboardMarkup(
-          [[
+          [
              InlineKeyboardButton(
                 text="Youtube",
-                web_app=WebAppInfo(url="https://youtube.com")
+                web_app=pyrogram.types.WebAppInfo(url="https://youtube.com")
              )
-          ]]
+          ]
        )
     )
 
