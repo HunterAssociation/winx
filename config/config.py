@@ -28,23 +28,23 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
 # Custom max audio(music) duration for voice chat. set DURATION_LIMIT in variables with your own time(mins), Default to 60 mins.
 DURATION_LIMIT_MIN = int(
-    getenv("DURATION_LIMIT", "240")
+    getenv("DURATION_LIMIT", "1440")
 )  # Remember to give value in Minutes
 
 # Duration Limit for downloading Songs in MP3 or MP4 format from bot
 SONG_DOWNLOAD_DURATION = int(
-    getenv("SONG_DOWNLOAD_DURATION_LIMIT", "240")
+    getenv("SONG_DOWNLOAD_DURATION_LIMIT", "1440")
 )  # Remember to give value in Minutes
 
 # You'll need a Private Group ID for this.
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1001285436101"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", None))
 
 # A name for your Music bot.
-MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "Winx")
+MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", None)
 
 # Your User ID.
 OWNER_ID = list(
-    map(int, getenv("OWNER_ID", "1307574219").split())
+    map(int, getenv("OWNER_ID", None).split())
 )  # Input type must be interger
 
 # Get it from http://dashboard.heroku.com/account
@@ -65,14 +65,14 @@ GIT_TOKEN = getenv("GIT_TOKEN", None)
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/clubdaswinxcanal"
+    "SUPPORT_CHANNEL", None
 )  # Example:- https://t.me/politicament
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/polclubdaswinx"
+    "SUPPORT_GROUP", None
 )  # Example:- https://t.me/politicament
 
 # Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
-AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", True)
+AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", False)
 
 # Time after which you're assistant account will leave chats automatically.
 AUTO_LEAVE_ASSISTANT_TIME = int(
@@ -157,7 +157,7 @@ autoclean = []
 
 # Images
 START_IMG_URL = getenv("START_IMG_URL",
-                       "https://64.media.tumblr.com/79bb5c54237323c17c93af4c3c83671b/667b875d0810726a-86/s1280x1920/018a7062497c7599991eac83a4f41844484e90e7.gifv")
+                       "https://telegra.ph/file/6e84e13c34aac6c72d5e0.jpg")
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
