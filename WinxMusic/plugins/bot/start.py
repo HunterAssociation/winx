@@ -36,16 +36,15 @@ from strings import get_command, get_string
 loop = asyncio.get_running_loop()
 
 
+
+
 @app.on_message(filters.command("tes"))
 async def tessss123(client, message):
     await message.reply(
-    "Tes",
-    reply_markup=InlineKeyboardMarkup(
-       InlineKeyboardButton(
-          text="Youtube",
-          url="https://youtube.com"
+       "Tes",
+       reply_markup=InlineKeyboardMarkup(
+          [[InlineKeyboardButton(text="Youtube", url="https://youtube.com")]]
        )
-    )
     )
 
 
