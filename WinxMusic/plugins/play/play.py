@@ -34,6 +34,12 @@ from WinxMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
 from strings import get_command
 
+
+@app.on_message(filters.command("play"))
+async def play_add_user_chat(client, message):
+    await add_served_chat(message.chat.id)
+    await add_served_user(message.from_user.id)
+
 # Command
 PLAY_COMMAND = get_command("PLAY_COMMAND")
 
@@ -503,8 +509,6 @@ async def play_commnd(
                 return await play_logs(
                     message, streamtype=f"URL Searched Inline"
                 )
-    await add_served_chat(message.chat.id)
-    await add_served_user(message.from_user.id)
 
 
 @app.on_callback_query(filters.regex("MusicStream") & ~BANNED_USERS)
