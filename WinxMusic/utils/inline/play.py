@@ -11,63 +11,30 @@ import random
 
 from pyrogram.types import InlineKeyboardButton
 
-selections = [
-    "▁▄▂▇▄▅▄▅▃",
-    "▁▃▇▂▅▇▄▅▃",
-    "▃▁▇▂▅▃▄▃▅",
-    "▃▄▂▄▇▅▃▅▁",
-    "▁▃▄▂▇▃▄▅▃",
-    "▃▁▄▂▅▃▇▃▅",
-    "▁▇▄▂▅▄▅▃▄",
-    "▁▃▅▇▂▅▄▃▇",
-    "▃▅▂▅▇▁▄▃▁",
-    "▇▅▂▅▃▄▃▁▃",
-    "▃▇▂▅▁▅▄▃▁",
-    "▅▄▇▂▅▂▄▇▁",
-    "▃▅▂▅▃▇▄▅▃",
-]
-
-
-## After Edits with Timer Bar
-
-
 def stream_markup_timer(_, videoid, chat_id, played, dur):
-    bar = random.choice(selections)
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"{played} {bar} {dur}",
-                callback_data="GetTimer",
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                text=_["PL_B_2"],
-                callback_data=f"add_playlist {videoid}",
+                text=_["P_B_6"],
+                switch_inline_query_current_chat="",
             ),
             InlineKeyboardButton(
-                text=_["PL_B_3"],
-                callback_data=f"PanelMarkup {videoid}|{chat_id}",
+                text=_["P_B_7"],
+                url="https://telegra.ph/DONATE-ME-02-03",
             ),
         ],
         [
             InlineKeyboardButton(
-                text=_["CLOSEMENU_BUTTON"], callback_data="close"
-            )
+                text=_["P_B_5"],
+                url="https://t.me/HunterAssociationIndonesia",
+            ),
         ],
     ]
     return buttons
 
 
 def telegram_markup_timer(_, chat_id, played, dur):
-    bar = random.choice(selections)
     buttons = [
-        [
-            InlineKeyboardButton(
-                text=f"{played} {bar} {dur}",
-                callback_data="GetTimer",
-            )
-        ],
         [
             InlineKeyboardButton(
                 text=_["PL_B_3"],
@@ -88,12 +55,12 @@ def stream_markup(_, videoid, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["PL_B_2"],
-                callback_data=f"add_playlist {videoid}",
+                text=_["P_B_6"],
+                callback_data=f"PanelMarkup {videoid}|{chat_id}",
             ),
             InlineKeyboardButton(
-                text=_["PL_B_3"],
-                callback_data=f"PanelMarkup None|{chat_id}",
+                text=_["P_B_5"],
+                url="https://t.me/HunterAssociationIndonesia",
             ),
         ],
         [
@@ -127,19 +94,19 @@ def track_markup(_, videoid, user_id, channel, fplay):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["P_B_1"],
-                callback_data=f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
+                text=_["P_B_6"],
+                switch_inline_query_current_chat="",
             ),
             InlineKeyboardButton(
-                text=_["P_B_2"],
-                callback_data=f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
+                text=_["P_B_7"],
+                url="https://telegra.ph/DONATE-ME-02-03",
             ),
         ],
         [
             InlineKeyboardButton(
-                text=_["CLOSE_BUTTON"],
-                callback_data=f"forceclose {videoid}|{user_id}",
-            )
+                text=_["P_B_5"],
+                url="https://t.me/HunterAssociationIndonesia",
+            ),
         ],
     ]
     return buttons
@@ -150,11 +117,11 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
         [
             InlineKeyboardButton(
                 text=_["P_B_1"],
-                callback_data=f"WinxPlaylists {videoid}|{user_id}|{ptype}|a|{channel}|{fplay}",
+                callback_data=f"YukkiPlaylists {videoid}|{user_id}|{ptype}|a|{channel}|{fplay}",
             ),
             InlineKeyboardButton(
                 text=_["P_B_2"],
-                callback_data=f"WinxPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
+                callback_data=f"YukkiPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
             ),
         ],
         [
@@ -190,7 +157,7 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
 
 
 def slider_markup(
-        _, videoid, user_id, query, query_type, channel, fplay
+    _, videoid, user_id, query, query_type, channel, fplay
 ):
     query = f"{query[:20]}"
     buttons = [
