@@ -55,8 +55,7 @@ async def play_commnd(
         url,
         fplay,
 ):
-    await add_served_chat(message.chat.id)
-    await add_served_user(message.from_user.id)
+
     mystic = await message.reply_text(
         _["play_2"].format(channel) if channel else _["play_1"]
     )
@@ -504,6 +503,8 @@ async def play_commnd(
                 return await play_logs(
                     message, streamtype=f"URL Searched Inline"
                 )
+    await add_served_chat(message.chat.id)
+    await add_served_user(message.from_user.id)
 
 
 @app.on_callback_query(filters.regex("MusicStream") & ~BANNED_USERS)
