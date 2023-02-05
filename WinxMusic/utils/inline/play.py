@@ -56,17 +56,18 @@ def stream_markup(_, videoid, chat_id):
         [
             InlineKeyboardButton(
                 text=_["P_B_6"],
-                callback_data=f"PanelMarkup {videoid}|{chat_id}",
+                switch_inline_query_current_chat="",
             ),
             InlineKeyboardButton(
-                text=_["P_B_5"],
-                url="https://t.me/HunterAssociationIndonesia",
+                text=_["P_B_7"],
+                url="https://telegra.ph/DONATE-ME-02-03",
             ),
         ],
         [
             InlineKeyboardButton(
-                text=_["CLOSEMENU_BUTTON"], callback_data="close"
-            )
+                text=_["P_B_5"],
+                url="https://t.me/HunterAssociationIndonesia",
+            ),
         ],
     ]
     return buttons
