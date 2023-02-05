@@ -1,4 +1,3 @@
-@@ -1,50 +1,50 @@
 #
 # Copyright (C) 2021-2022 by mrootx@Github, < https://github.com/gabrielmaialva33 >.
 #
