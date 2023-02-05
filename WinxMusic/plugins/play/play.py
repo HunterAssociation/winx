@@ -21,7 +21,7 @@ from WinxMusic import (Apple, Resso, SoundCloud, Spotify, Telegram,
 from WinxMusic.core.call import Winx
 from WinxMusic.utils import seconds_to_min, time_to_seconds
 from WinxMusic.utils.channelplay import get_channeplayCB
-from WinxMusic.utils.database import is_video_allowed, add_served_chat, add_served_user
+from WinxMusic.utils.database import is_video_allowed
 from WinxMusic.utils.decorators.language import languageCB
 from WinxMusic.utils.decorators.play import PlayWrapper
 from WinxMusic.utils.formatters import formats
@@ -35,10 +35,6 @@ from config import BANNED_USERS, lyrical
 from strings import get_command
 
 
-@app.on_message(filters.command("protecc"))
-async def play_add_user_chat(client, message):
-    await add_served_chat(message.chat.id)
-    await add_served_user(message.from_user.id)
 
 # Command
 PLAY_COMMAND = get_command("PLAY_COMMAND")
