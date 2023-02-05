@@ -145,9 +145,9 @@ async def braodcast_message(client, message, _):
         for i in served_users:
             try:
                 m = (
-                    await app.copy_messages(i, y, x)
+                    await message.copy(i, y, x)
                     if message.reply_to_message
-                    else await app.send_message(i, text=query)
+                    else await message.reply(i, text=query)
                 )
                 susr += 1
             except FloodWait as e:
