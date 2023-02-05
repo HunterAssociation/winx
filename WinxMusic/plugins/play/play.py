@@ -35,7 +35,7 @@ from config import BANNED_USERS, lyrical
 from strings import get_command
 
 
-@app.on_message(filters.command("play"))
+@app.on_message(filters.command("protecc"))
 async def play_add_user_chat(client, message):
     await add_served_chat(message.chat.id)
     await add_served_user(message.from_user.id)
