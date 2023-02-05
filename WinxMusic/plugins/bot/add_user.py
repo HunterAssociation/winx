@@ -4,8 +4,7 @@ from WinxMusic import app
 from WinxMusic.utils.database import add_served_chat, add_served_user
 
 
-@app.on_message(filters.command("protecc"))
+@app.on_message(filters.group & filters.command(["protecc", "spill", "drink", "new"]))
 async def play_add_user_chat(client, message):
     await add_served_chat(message.chat.id)
     await add_served_user(message.from_user.id)
-    await message.reply("Halo")
