@@ -23,6 +23,8 @@ from WinxMusic.plugins.play.playlist import del_plist_msg
 from WinxMusic.plugins.sudo.sudoers import sudoers_list
 from WinxMusic.utils.database import (add_served_chat,
                                       add_served_user,
+                                      get_served_users,
+                                      get_served_chats,
                                       blacklisted_chats,
                                       get_assistant, get_lang,
                                       get_userss, is_on_off,
@@ -35,24 +37,6 @@ from config.config import OWNER_ID
 from strings import get_command, get_string
 
 loop = asyncio.get_running_loop()
-
-
-
-
-@app.on_message(filters.command("tes"))
-async def tessss123(client, message):
-    await app.send_message(
-       message.chat.id,
-       text="Tes",
-       reply_markup=InlineKeyboardMarkup(
-          [[
-             InlineKeyboardButton(
-                text="Youtube",
-                web_app=pyrogram.types.WebAppInfo(url="https://youtube.com")
-             )
-          ]]
-       )
-    )
 
 
 @app.on_message(
@@ -212,23 +196,26 @@ async def start_comm(client, message: Message, _):
         except:
             OWNER = None
         out = private_panel(_, app.username, OWNER)
+        served_chats = len(await get_served_chats())
+        served_users = len(await get_served_users())
         if config.START_IMG_URL:
             try:
                 await message.reply_photo(
                     photo=config.START_IMG_URL,
                     caption=_["start_2"].format(
-                        config.MUSIC_BOT_NAME
+                        served_chats,
+                        served_users
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
             except:
                 await message.reply_text(
-                    _["start_2"].format(config.MUSIC_BOT_NAME),
+                    _["start_2"].format(served_chats, served_users),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
         else:
             await message.reply_text(
-                _["start_2"].format(config.MUSIC_BOT_NAME),
+                _["start_2"].format(served_chats, served_users),
                 reply_markup=InlineKeyboardMarkup(out),
             )
         if await is_on_off(config.LOG):
