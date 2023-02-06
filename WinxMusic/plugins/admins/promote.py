@@ -1,7 +1,32 @@
-from pyrogram import Client, filters
-from pyrogram.types import Message, ChatPrivileges
+from pyrogram import Client, filters, enums
+from pyrogram.types import Message, ChatPrivileges, ChatPermissions
 from WinxMusic import app
 from config.config import OWNER_ID
+
+
+async def extract_userid(message, text: str):
+    def is_int(text: str):
+        try:
+            int(text)
+        except ValueError:
+            return False
+        return True
+
+    text = text.strip()
+
+    if is_int(text):
+        return int(text)
+
+    entities = message.entities
+    app = message._client
+    if len(entities) < 2:
+        return (await app.get_users(text)).id
+    entity = entities[1]
+    if entity.type == "mention":
+        return (await app.get_users(text)).id
+    if entity.type == "text_mention":
+        return entity.user.id
+    return None
 
 
 async def extract_user_and_reason(message, sender_chat=False):
@@ -42,34 +67,22 @@ async def extract_user_and_reason(message, sender_chat=False):
 
 async def extract_user(message):
     return (await extract_user_and_reason(message))[0]
-  
-  
-  
-async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
-    apa = (
-        message.edit_text
-        if bool(message.from_user and message.from_user.is_self or message.outgoing)
-        else (message.reply_to_message or message).reply_text
-    )
-    return await apa(*args, **kwargs)
 
 
-eor = edit_or_reply
-  
+
 
 @app.on_message(
-    filters.group & filters.command(["promote", "fullpromote"]) & filters.user(OWNER_ID)
+    filters.group & filters.command(["promote", "fullpromote"], ".") & filters.user(OWNER_ID)
 )
 async def promotte(client: Client, message: Message):
-    await message.delete()
     user_id = await extract_user(message)
     umention = (await client.get_users(user_id)).mention
-    Man = await edit_or_reply(message, "`Processing...`")
+    rd = await message.edit_text("`Processing...`")
     if not user_id:
-        return await Man.edit("I can't find that user.")
+        return await rd.edit("I can't find that user.")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_promote_members:
-        return await Man.edit("<code>Permissions</code>")
+        return await rd.edit("I don't have enough permissions")
     if message.command[0][0] == "f":
         await message.chat.promote_member(
             user_id,
@@ -84,7 +97,7 @@ async def promotte(client: Client, message: Message):
                 can_promote_members=True,
             ),
         )
-        return await Man.edit(f"Success {umention}")
+        return await rd.edit(f"Fully Promoted! {umention}")
 
     await message.chat.promote_member(
         user_id,
@@ -99,4 +112,4 @@ async def promotte(client: Client, message: Message):
             can_promote_members=True,
         ),
     )
-    await Man.edit(f"Success {umention}")
+    await rd.edit(f"Promoted! {umention}")
