@@ -58,7 +58,7 @@ eor = edit_or_reply
   
 
 @app.on_message(
-    filters.group & filters.command(["promote", "fullpromote"], cmd) & filters.user(OWNER_ID)
+    filters.group & filters.command(["promote", "fullpromote"]) & filters.user(OWNER_ID)
 )
 async def promotte(client: Client, message: Message):
     await message.delete()
