@@ -1,3 +1,8 @@
+import os
+import sys
+from re import sub
+from time import time
+import asyncio
 from pyrogram import Client, filters, enums
 from pyrogram.types import Message, ChatPrivileges, ChatPermissions
 from WinxMusic import app
